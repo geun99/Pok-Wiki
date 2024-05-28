@@ -7,6 +7,7 @@ import {
   getStats,
   getWeight,
 } from "./api/pokemonDetail";
+import PokeCardInfinite from "./components/pokemon/PokeCardInfinite";
 
 function App() {
   useEffect(() => {
@@ -41,7 +42,11 @@ function App() {
       console.log(res);
     });
   }, []);
-  return <>asd</>;
+  return (
+    <>
+      <PokeCardInfinite></PokeCardInfinite>
+    </>
+  );
 }
 
 export default App;
