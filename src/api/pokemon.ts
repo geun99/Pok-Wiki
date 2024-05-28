@@ -1,4 +1,3 @@
-import { typeTranslate } from "../util/typeTranslate";
 import { httpClient } from "./http";
 
 export interface PokemonSpeciesResponse {
@@ -29,7 +28,7 @@ export const getPokemonType = async (id: number) => {
   const response = await httpClient.get<{
     types: { type: { name: string } }[];
   }>(`pokemon/${id}`);
-  return response.data.types.map((type) => typeTranslate(type.type.name));
+  return response.data.types.map((type) => type.type.name);
 };
 
 export const getPokemonImage = async (id: number) => {

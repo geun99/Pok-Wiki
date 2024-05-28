@@ -1,13 +1,16 @@
 import styled from "styled-components";
+import { typeTranslate } from "../../util/typeTranslate";
 
 const Types = ({ types }: { types: string[] }) => {
   return (
     <TypesStyle>
-      {types.length == 1 && <p className={`${types[0]} oneType`}>{types[0]}</p>}
+      {types.length == 1 && (
+        <p className={`${types[0]} oneType`}>{typeTranslate(types[0])}</p>
+      )}
       {types.length > 1 &&
         types.map((type) => (
           <p key={type} className={type}>
-            {type}
+            {typeTranslate(type)}
           </p>
         ))}
     </TypesStyle>

@@ -8,6 +8,8 @@ import {
   getWeight,
 } from "./api/pokemonDetail";
 import PokeCardInfinite from "./components/pokemon/PokeCardInfinite";
+import Header from "./components/Common/Header";
+import Footer from "./components/Common/Footer";
 
 function App() {
   useEffect(() => {
@@ -44,7 +46,9 @@ function App() {
   }, []);
   return (
     <>
-      <PokeCardInfinite></PokeCardInfinite>
+      <Header />
+      <PokeCardInfinite />
+      <Footer />
     </>
   );
 }

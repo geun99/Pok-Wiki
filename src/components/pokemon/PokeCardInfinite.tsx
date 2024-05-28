@@ -26,18 +26,16 @@ const fetchPokemonItems = async ({
 }: {
   pageParam?: number;
 }): Promise<PokemonResponse> => {
-  const limit = 20; // 한 페이지에 로드할 포켓몬 수
+  const limit = 18;
   const offset = (pageParam - 1) * limit;
 
-  // 포켓몬 리스트 가져오기
   const response = await httpClient.get<{
     results: { name: string; url: string }[];
   }>(`pokemon?limit=${limit}&offset=${offset}`);
   const pokemonList = response.data.results;
 
-  // 각 포켓몬의 세부 정보 가져오기
   const items = await Promise.all(
-    pokemonList.map(async (pokemon, index) => {
+    pokemonList.map(async (_, index) => {
       const id = offset + index + 1;
       const name = await getPokemonName(id);
       const type = await getPokemonType(id);
@@ -119,7 +117,7 @@ const PokeCardInfinite: React.FC = () => {
           disabled={!hasNextPage || isFetchingNextPage}
         >
           {isFetchingNextPage
-            ? "Loading more..."
+            ? "불러오는중..."
             : hasNextPage
             ? "Load More"
             : "Nothing more to load"}
