@@ -1,20 +1,5 @@
+import { ImageResponse, PokemonSpeciesResponse } from "../types/pokemon.types";
 import { httpClient } from "./http";
-
-export interface PokemonSpeciesResponse {
-  names: { name: string; language: { name: string } }[];
-}
-
-interface Sprites {
-  other: {
-    "official-artwork": {
-      front_default: string;
-    };
-  };
-}
-
-interface PokemonResponse {
-  sprites: Sprites;
-}
 
 export const getPokemonName = async (id: number) => {
   const response = await httpClient.get<PokemonSpeciesResponse>(
@@ -32,6 +17,6 @@ export const getPokemonType = async (id: number) => {
 };
 
 export const getPokemonImage = async (id: number) => {
-  const response = await httpClient.get<PokemonResponse>(`pokemon/${id}`);
+  const response = await httpClient.get<ImageResponse>(`pokemon/${id}`);
   return response.data.sprites.other["official-artwork"].front_default;
 };

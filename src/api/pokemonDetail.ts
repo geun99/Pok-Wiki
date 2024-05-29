@@ -1,73 +1,33 @@
+import {
+  PokemonDetails,
+  PokemonResponse,
+  PokemonSpeciesResponse,
+} from "../types/pokemon.types";
 import { httpClient } from "./http";
 
-interface Genera {
-  genus: string;
-  language: {
-    name: string;
-    url: string;
-  };
-}
+export const getPokemonDetails = async (
+  id: number
+): Promise<PokemonDetails> => {
+  const [speciesResponse, pokemonResponse] = await Promise.all([
+    httpClient.get<PokemonSpeciesResponse>(`pokemon-species/${id}`),
+    httpClient.get<PokemonResponse>(`pokemon/${id}`),
+  ]);
 
-interface PokemonSpeciesResponse {
-  genera: Genera[];
-}
-
-export const getPokemonGenera = async (id: number) => {
-  const response = await httpClient.get<PokemonSpeciesResponse>(
-    `pokemon-species/${id}`
-  );
-  return response.data.genera[1].genus;
-};
-
-export const getHeight = async (id: number) => {
-  const response = await httpClient.get<{
-    height: number;
-  }>(`pokemon/${id}`);
-  return response.data.height;
-};
-
-export const getWeight = async (id: number) => {
-  const response = await httpClient.get<{
-    weight: number;
-  }>(`pokemon/${id}`);
-  return response.data.weight;
-};
-
-export const getFlavorText = async (id: number) => {
-  const response = await httpClient.get<{
-    flavor_text_entries: {
-      flavor_text: string;
-      language: {
-        name: string;
-        url: string;
-      };
-    }[];
-  }>(`pokemon-species/${id}`);
-
-  const krText = response.data.flavor_text_entries.filter(
+  const krText = speciesResponse.data.flavor_text_entries.filter(
     (entry) => entry.language.name === "ko"
   );
 
-  const enText = response.data.flavor_text_entries.filter(
+  const enText = speciesResponse.data.flavor_text_entries.filter(
     (entry) => entry.language.name === "en"
   );
 
-  return krText.length > 0 ? krText[0].flavor_text : enText[0].flavor_text;
-};
-
-export const getStats = async (id: number): Promise<number[]> => {
-  const response = await httpClient.get<{
-    stats: {
-      base_stat: number;
-      effort: number;
-      stat: {
-        name: string;
-        url: string;
-      };
-    }[];
-  }>(`pokemon/${id}`);
-
-  const baseStats = response.data.stats.map((stat) => stat.base_stat);
-
-  return baseStats;
+  return {
+    genera: speciesResponse.data.genera[1].genus,
+    height: pokemonResponse.data.height,
+    weight: pokemonResponse.data.weight,
+    flavor_text_entries:
+      krText.length > 0 ? krText[0].flavor_text : enText[0].flavor_text,
+    stats: pokemonResponse.data.stats.map((stat) => stat.base_stat),
+    sprites: pokemonResponse.data.sprites.other.showdown.front_default,
+  };
 };

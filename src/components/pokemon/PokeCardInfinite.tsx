@@ -119,8 +119,8 @@ const PokeCardInfinite: React.FC = () => {
           {isFetchingNextPage
             ? "불러오는중..."
             : hasNextPage
-            ? "Load More"
-            : "Nothing more to load"}
+            ? "더 불러오기"
+            : ""}
         </button>
       </div>
     </PokeCardInfinteStyle>
