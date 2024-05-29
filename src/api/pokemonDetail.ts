@@ -28,6 +28,7 @@ export const getPokemonDetails = async (
     flavor_text_entries:
       krText.length > 0 ? krText[0].flavor_text : enText[0].flavor_text,
     stats: pokemonResponse.data.stats.map((stat) => stat.base_stat),
-    sprites: pokemonResponse.data.sprites.other.showdown.front_default,
+    sprites:
+      pokemonResponse.data.sprites.other["official-artwork"].front_default,
   };
 };

@@ -28,13 +28,7 @@ export interface PokemonResponse {
       url: string;
     };
   }[];
-  sprites: {
-    other: {
-      showdown: {
-        front_default: string;
-      };
-    };
-  };
+  sprites: Sprites;
 }
 
 export interface PokemonDetails {
