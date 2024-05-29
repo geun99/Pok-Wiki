@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useRef } from "react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { httpClient } from "../../api/http";
 import {
@@ -50,7 +50,7 @@ const fetchPokemonItems = async ({
   };
 };
 
-const PokeCardInfinite: React.FC = () => {
+const PokeCardInfinite = () => {
   const {
     data,
     fetchNextPage,
@@ -66,9 +66,9 @@ const PokeCardInfinite: React.FC = () => {
     initialPageParam: 1,
   });
 
-  const loadMoreButtonRef = React.useRef<HTMLButtonElement | null>(null);
+  const loadMoreButtonRef = useRef<HTMLButtonElement | null>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!loadMoreButtonRef.current) return;
 
     const observer = new IntersectionObserver(
@@ -131,6 +131,9 @@ const PokeCardInfinteStyle = styled.div`
   display: grid;
   grid-template-columns: repeat(3, minmax(200px, 1fr));
   gap: 20px;
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, minmax(200px, 1fr));
+  }
 `;
 
 export default PokeCardInfinite;

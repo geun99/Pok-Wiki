@@ -8,7 +8,6 @@ function App() {
   return (
     <>
       <Header />
-
       <Routes>
         <Route path="/" element={<PokeCardInfinite />} />
         <Route path="/detail/:id" element={<PokeDetail />} />

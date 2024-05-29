@@ -13,7 +13,7 @@ const Header = () => {
         }}
       >
         <img src={logo} alt="Pokeball" />
-        <h1>Poke Wiki</h1>
+        <h1>PokéWiki</h1>
       </div>
     </HeaderStyle>
   );

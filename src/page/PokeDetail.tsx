@@ -10,7 +10,7 @@ import PokemonInfo from "../components/pokemonDetail/PokemonInfo";
 import PokemonName from "../components/pokemonDetail/PokemonName";
 
 const PokeDetail = () => {
-  const id = useParams().id;
+  const { id } = useParams<{ id: string }>();
   const [pokemonGenera, setPokemonGenera] = useState<string>("");
   const [height, setHeight] = useState<number>(0);
   const [weight, setWeight] = useState<number>(0);
@@ -19,6 +19,7 @@ const PokeDetail = () => {
   const [movingImage, setMovingImage] = useState<string>("");
   const [pokeTypes, setPokeTypes] = useState<string[]>([]);
   const [pokemonName, setPokemonName] = useState<string>("");
+
   useEffect(() => {
     getPokemonDetails(Number(id)).then((data) => {
       setPokemonGenera(data.genera);
@@ -35,6 +36,17 @@ const PokeDetail = () => {
       setPokemonName(data);
     });
   }, [id]);
+
+  useEffect(() => {
+    if (pokeTypes.length > 0) {
+      const type = pokeTypes[0];
+      document.body.classList.add(type);
+
+      return () => {
+        document.body.classList.remove(type);
+      };
+    }
+  }, [pokeTypes]);
 
   return (
     <PokeDetailStyle>
