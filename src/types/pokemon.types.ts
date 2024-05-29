@@ -55,3 +55,7 @@ export interface Sprites {
 export interface ImageResponse {
   sprites: Sprites;
 }
+
+export interface PokemonTypeResponse {
+  pokemon: { pokemon: { name: string; url: string } }[];
+}

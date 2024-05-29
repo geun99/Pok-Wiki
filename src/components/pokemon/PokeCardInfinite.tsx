@@ -8,6 +8,7 @@ import {
 } from "../../api/pokemon";
 import PokemonCard from "./PokemonCard";
 import styled from "styled-components";
+import TypeButtons from "./TypeButtons";
 
 interface PokemonItem {
   id: number;
@@ -98,41 +99,49 @@ const PokeCardInfinite = () => {
 
   return (
     <PokeCardInfinteStyle>
-      {data?.pages.map((page) => (
-        <>
-          {page.items.map((item) => (
-            <PokemonCard
-              name={item.name}
-              types={item.type}
-              image={item.image}
-              id={item.id}
-            />
-          ))}
-        </>
-      ))}
-      <div>
-        <button
-          ref={loadMoreButtonRef}
-          onClick={() => fetchNextPage()}
-          disabled={!hasNextPage || isFetchingNextPage}
-        >
-          {isFetchingNextPage
-            ? "불러오는중..."
-            : hasNextPage
-            ? "더 불러오기"
-            : ""}
-        </button>
+      <TypeButtons />
+      <div className="card-container">
+        {data?.pages.map((page) => (
+          <>
+            {page.items.map((item) => (
+              <PokemonCard
+                name={item.name}
+                types={item.type}
+                image={item.image}
+                id={item.id}
+              />
+            ))}
+          </>
+        ))}
+        <div>
+          <button
+            ref={loadMoreButtonRef}
+            onClick={() => fetchNextPage()}
+            disabled={!hasNextPage || isFetchingNextPage}
+          >
+            {isFetchingNextPage
+              ? "불러오는중..."
+              : hasNextPage
+              ? "더 불러오기"
+              : ""}
+          </button>
+        </div>
       </div>
     </PokeCardInfinteStyle>
   );
 };
 
 const PokeCardInfinteStyle = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, minmax(200px, 1fr));
-  gap: 20px;
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
   @media (max-width: 768px) {
-    grid-template-columns: repeat(1, minmax(200px, 1fr));
+    .card-container {
+      grid-template-columns: repeat(1, minmax(200px, 1fr));
+    }
   }
 `;
 
