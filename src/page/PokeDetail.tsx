@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getPokemonDetails } from "../api/pokemonDetail";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { getPokemonName, getPokemonType } from "../api/pokemon";
@@ -8,6 +8,7 @@ import PokemonStat from "../components/pokemonDetail/PokemonStat";
 import styled from "styled-components";
 import PokemonInfo from "../components/pokemonDetail/PokemonInfo";
 import PokemonName from "../components/pokemonDetail/PokemonName";
+import PageMoveButtons from "../components/pokemonDetail/PageMoveButtons";
 
 const PokeDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -19,6 +20,9 @@ const PokeDetail = () => {
   const [movingImage, setMovingImage] = useState<string>("");
   const [pokeTypes, setPokeTypes] = useState<string[]>([]);
   const [pokemonName, setPokemonName] = useState<string>("");
+
+  const [nextPokemon, setNextPokemon] = useState<string | undefined>(undefined);
+  const [prevPokemon, setPrevPokemon] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     getPokemonDetails(Number(id)).then((data) => {
@@ -35,6 +39,21 @@ const PokeDetail = () => {
     getPokemonName(Number(id)).then((data) => {
       setPokemonName(data);
     });
+
+    const prevId = Number(id) - 1;
+    const nextId = Number(id) + 1;
+
+    if (prevId > 0) {
+      getPokemonName(prevId).then((data) => {
+        setPrevPokemon(data);
+      });
+    }
+
+    if (nextId < 1026) {
+      getPokemonName(nextId).then((data) => {
+        setNextPokemon(data);
+      });
+    }
   }, [id]);
 
   useEffect(() => {
@@ -48,6 +67,16 @@ const PokeDetail = () => {
     }
   }, [pokeTypes]);
 
+  useEffect(() => {
+    if (pokemonName) {
+      document.title = pokemonName;
+    }
+    return () => {
+      document.title = "PokéWiki";
+    };
+  }, [pokemonName]);
+
+  const navigate = useNavigate();
   return (
     <PokeDetailStyle>
       <PokemonName name={pokemonName} genera={pokemonGenera} id={Number(id)} />
@@ -60,6 +89,12 @@ const PokeDetail = () => {
         weight={weight}
       />
       <PokemonStat stats={stats} />
+      <PageMoveButtons
+        id={String(id)}
+        navigate={navigate}
+        nextPokemon={nextPokemon}
+        prevPokemon={prevPokemon}
+      />
     </PokeDetailStyle>
   );
 };
