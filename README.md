@@ -29,6 +29,11 @@ Open API인 Poke API를 이용한 포켓몬 정보사이트
 <details markdown="1">
 <summary>전체 포켓몬 목록</summary>
 
+ ![123123](https://github.com/geun99/Pok-Wiki/assets/150868973/a91c70ad-b95f-4f07-8102-23d13afd9524)
+
+ ![312312312312](https://github.com/geun99/Pok-Wiki/assets/150868973/f0f5890d-c7d5-429e-bb60-7ae73ebb3a8e)
+
+
 
 
 </details>
@@ -39,6 +44,8 @@ Open API인 Poke API를 이용한 포켓몬 정보사이트
 - 클릭시 해당 포켓몬의 상세페이지로 이동합니다.
 <details markdown="1">
 <summary>타입 필터</summary>
+ 
+![2341241](https://github.com/geun99/Pok-Wiki/assets/150868973/43388e88-88e9-45a7-97e6-c6c14012bfe4)
 
 ![타입필터무한스크롤](https://github.com/geun99/Pok-Wiki/assets/150868973/9771d720-51f7-4a54-a8a7-d7a84fda4347)
 
