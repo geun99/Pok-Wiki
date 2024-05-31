@@ -28,8 +28,9 @@ Open API인 Poke API를 이용한 포켓몬 정보사이트
 - 클릭시 해당 포켓몬의 상세페이지로 이동합니다.
 <details markdown="1">
 <summary>전체 포켓몬 목록</summary>
-  <img width="1000" src="https://velog.velcdn.com/images/geun99/post/a3bece06-a75b-4170-ad08-2e906f71fc75/image.gif" />
-  <img width="300" src="https://velog.velcdn.com/images/geun99/post/9861abd2-0436-482d-b52f-e3255c1b284c/image.gif">
+
+
+
 </details>
 
 ### ✔︎ 타입 필터
@@ -38,8 +39,10 @@ Open API인 Poke API를 이용한 포켓몬 정보사이트
 - 클릭시 해당 포켓몬의 상세페이지로 이동합니다.
 <details markdown="1">
 <summary>타입 필터</summary>
-<!--   <img width="1000" src="https://velog.velcdn.com/images/geun99/post/8af72c97-a5d4-4bbd-b2cb-0fc5d099d600/image.png"> -->
-  
+
+![타입필터무한스크롤](https://github.com/geun99/Pok-Wiki/assets/150868973/9771d720-51f7-4a54-a8a7-d7a84fda4347)
+
+
 </details>
 
 ### ✔︎ 포켓몬 상세 페이지
@@ -49,7 +52,10 @@ Open API인 Poke API를 이용한 포켓몬 정보사이트
 - 배경 색상이 해당 포켓몬의 속성에 따라 변합니다.
 <details markdown="1">
 <summary>상세 페이지</summary>
-<!--   <img width="1200" src="https://velog.velcdn.com/images/geun99/post/dbaa27e2-c638-4d2a-8069-fa64d1c0993d/image.gif"> -->
+ 
+![](https://velog.velcdn.com/images/geun99/post/d44e496e-ffb9-4f8a-82ef-14bf022602ce/image.gif)
+![상세페이지모바일](https://github.com/geun99/Pok-Wiki/assets/150868973/5070f7d2-3a79-470d-a46c-f691853ece6f)
+
 </details>
 
 
