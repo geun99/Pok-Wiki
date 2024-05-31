@@ -20,16 +20,16 @@ Open API인 Poke API를 이용한 포켓몬 정보사이트
 - Tanstack-Query(무한 스크롤 구현)
 - React-Lazy-Load-Image-Component(이미지 로딩속도 감소)
 - Vercel(배포)
-- 
+
 ## 🛠 기능
 ### ✔︎ 전체 포켓몬 목록 
 - 모든 포켓몬들의 목록을 보여줍니다
 - 이미지, 도감번호(전국 도감기준), 이름, 속성정보를 담고있습니다.
 - 클릭시 해당 포켓몬의 상세페이지로 이동합니다.
 <details markdown="1">
-<!-- <summary>전체 포켓몬 목록</summary>
-  <img width="1000" src="https://velog.velcdn.com/images/geun99/post/a3bece06-a75b-4170-ad08-2e906f71fc75/image.gif">
-  <img width="300" src="https://velog.velcdn.com/images/geun99/post/9861abd2-0436-482d-b52f-e3255c1b284c/image.gif"> -->
+<summary>전체 포켓몬 목록</summary>
+  <img width="1000" src="https://velog.velcdn.com/images/geun99/post/a3bece06-a75b-4170-ad08-2e906f71fc75/image.gif" />
+  <img width="300" src="https://velog.velcdn.com/images/geun99/post/9861abd2-0436-482d-b52f-e3255c1b284c/image.gif">
 </details>
 
 ### ✔︎ 타입 필터
@@ -48,7 +48,7 @@ Open API인 Poke API를 이용한 포켓몬 정보사이트
 - 다음과 이전 버튼을 눌러 도감 번호기준 다음 포켓몬, 이전 포켓몬의 상세페이지로 이동할 수 있습니다.
 - 배경 색상이 해당 포켓몬의 속성에 따라 변합니다.
 <details markdown="1">
-<summary>상세 페이지지</summary>
+<summary>상세 페이지</summary>
 <!--   <img width="1200" src="https://velog.velcdn.com/images/geun99/post/dbaa27e2-c638-4d2a-8069-fa64d1c0993d/image.gif"> -->
 </details>
 
