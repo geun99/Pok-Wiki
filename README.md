@@ -65,6 +65,18 @@ Open API인 Poke API를 이용한 포켓몬 정보사이트
 
 </details>
 
+### ✔︎ 포켓몬 검색 기능
+- 포켓몬을 영문 이름, 전국 도감 번호를 통해 검색할 수 있습니다.
+- 검색후 해당 포켓몬의 상세페이지로 이동됩니다.
+<details markdown="1">
+<summary>상세 페이지</summary>
+ 
+![Honeycam 2024-06-01 09-26-29](https://github.com/geun99/Pok-Wiki/assets/150868973/c2ccb971-9263-4b78-a1ea-5242687ae0d0)
+![Honeycam 2024-06-01 09-31-03](https://github.com/geun99/Pok-Wiki/assets/150868973/1c6efc94-5107-4492-b0ba-a06720dc0512)
+
+</details>
+
+
 
 ## 📁 Directory Structure
 ```
