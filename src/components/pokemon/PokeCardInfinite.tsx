@@ -9,6 +9,7 @@ import {
 import PokemonCard from "./PokemonCard";
 import styled from "styled-components";
 import TypeButtons from "./TypeButtons";
+import Input from "../Common/Input";
 
 interface PokemonItem {
   id: number;
@@ -99,6 +100,7 @@ const PokeCardInfinite = () => {
 
   return (
     <PokeCardInfinteStyle>
+      <Input />
       <TypeButtons />
       <div className="card-container">
         {data?.pages.map((page) => (

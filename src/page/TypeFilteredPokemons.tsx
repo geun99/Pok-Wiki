@@ -8,7 +8,6 @@ import {
   getPokemonType,
 } from "../api/pokemon";
 import PokemonCard from "../components/pokemon/PokemonCard";
-import { typesNumber } from "../constants/typesNumber";
 
 interface PokemonItem {
   id: number;
@@ -56,11 +55,7 @@ const fetchPokemonItems = async ({
   };
 };
 
-const TypeFilteredPokemons = ({
-  typeId,
-}: {
-  typeId: keyof typeof typesNumber;
-}) => {
+const TypeFilteredPokemons = ({ typeId }: { typeId: number }) => {
   const {
     data,
     fetchNextPage,
@@ -109,11 +104,11 @@ const TypeFilteredPokemons = ({
 
   useEffect(() => {
     if (typeId) {
-      const type = typesNumber[typeId];
-      document.body.classList.add(type);
+      const type = typeId;
+      document.body.classList.add(String(type));
 
       return () => {
-        document.body.classList.remove(type);
+        document.body.classList.remove(String(type));
       };
     }
   }, [typeId]);

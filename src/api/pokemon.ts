@@ -36,6 +36,10 @@ interface PokemonResponse {
   next: string | null;
 }
 
+interface getIdByNameResponse {
+  id: number;
+}
+
 export const getIdByType = async (typeId: number) => {
   let allPokemonIds: number[] = [];
   let nextPageUrl: string | null = `type/${typeId}`;
@@ -57,4 +61,11 @@ export const getIdByType = async (typeId: number) => {
   }
 
   return allPokemonIds;
+};
+
+export const getIdByName = async (name: string) => {
+  const response = await httpClient.get<getIdByNameResponse>(
+    `/pokemon/${name}`
+  );
+  return response.data.id;
 };

@@ -4,9 +4,33 @@ import Footer from "./components/Common/Footer";
 import { Route, Routes } from "react-router-dom";
 import PokeDetail from "./page/PokeDetail";
 import TypeFilteredPokemons from "./page/TypeFilteredPokemons";
-import { typeIds } from "./constants/typeIds";
+
+type TypeId =
+  | 1
+  | 2
+  | 3
+  | 4
+  | 5
+  | 6
+  | 7
+  | 8
+  | 9
+  | 10
+  | 11
+  | 12
+  | 13
+  | 14
+  | 15
+  | 16
+  | 17
+  | 18;
 
 function App() {
+  const typeIds: TypeId[] = Array.from(
+    { length: 18 },
+    (_, i) => (i + 1) as TypeId
+  );
+
   return (
     <>
       <Header />
