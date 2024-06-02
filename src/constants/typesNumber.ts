@@ -1,4 +1,4 @@
-export const typesNumber = {
+export const typesNumber: Record<string, string> = {
   "1": "normal",
   "2": "fighting",
   "3": "flying",

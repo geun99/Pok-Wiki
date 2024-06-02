@@ -8,6 +8,7 @@ import {
   getPokemonType,
 } from "../api/pokemon";
 import PokemonCard from "../components/pokemon/PokemonCard";
+import { typesNumber } from "../constants/typesNumber";
 
 interface PokemonItem {
   id: number;
@@ -104,7 +105,7 @@ const TypeFilteredPokemons = ({ typeId }: { typeId: number }) => {
 
   useEffect(() => {
     if (typeId) {
-      const type = typeId;
+      const type = typesNumber[typeId.toString()];
       document.body.classList.add(String(type));
 
       return () => {
