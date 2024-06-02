@@ -54,6 +54,12 @@ const InputStyle = styled.div`
     border: 1px solid #ccc;
     font-size: 1.25rem;
   }
+  @media (max-width: 768px) {
+    .pokemonSearch {
+      width: 100%;
+      font-size: 0.75rem;
+    }
+  }
 `;
 
 export default Input;
