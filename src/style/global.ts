@@ -17,60 +17,60 @@ export const GlobalStyle = createGlobalStyle`
     background-color: #b0daea;
   }
   .grass{
-    background-color: #78C850;
+    background-color: #66a945;
    }
   .fire{
-     background-color: #F08030;
+     background-color: #e56c3e;
    }
   .water{
-     background-color: #6890F0;
+     background-color: #5185c5;
    }
   .electric{
-     background-color: #F8D030;
+     background-color: #f6d851;
    }
   .ice{
-     background-color: #98D8
+     background-color: #6dc8eb
   }
   .fighting{
-    background-color: #C03028;
+    background-color: #e09c40;
    }
   .poison{
-     background-color: #A040A0;
+     background-color: #735198;
    }
   .ground{
      background-color: #E0C068;
    }
   .flying{
-     background-color: #A890F0;
+     background-color: #a2c3e7;
    }
   .psychic{
-     background-color: #F85888;
+     background-color: #dd6b7b;
   }
   .bug{
-    background-color: #A8B820;
+    background-color: #9fa244;
    }
   .rock{
-     background-color: #B8A038;
+     background-color: #bfb889;
    }
   .ghost{
-     background-color: #705898;
+     background-color: #684870;
    }
   .dragon{
-     background-color: #7038F8;
+     background-color: #535ca8;
    }
   .dark{
-    background-color: #705848;
+    background-color: #4c4948;
    }
   .steel{
-     background-color: #B8B8D0;
+     background-color: #69a9c7;
    }
   .fairy{
-     background-color: #EE99AC;
+     background-color: #dab4d4;
    }
   .unknown{
      background-color: #606060;
    }
    .normal{
-     background-color: #A8A878;
+     background-color: #949495;
    }
 `;
