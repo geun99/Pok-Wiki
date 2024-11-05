@@ -9,6 +9,8 @@ import {
 } from "../api/pokemon";
 import PokemonCard from "../components/pokemon/PokemonCard";
 import { typesNumber } from "../constants/typesNumber";
+import Input from "../components/Common/Input";
+import TypeButtons from "../components/pokemon/TypeButtons";
 
 interface PokemonItem {
   id: number;
@@ -118,34 +120,38 @@ const TypeFilteredPokemons = ({ typeId }: { typeId: number }) => {
   if (status === "error" && error) return <div>Error: {error.message}</div>;
 
   return (
-    <TypeFilteredPokemonsStyle>
-      {data?.pages.map((page) => (
-        <>
-          {page.items.map((item) => (
-            <PokemonCard
-              key={item.id}
-              name={item.name}
-              types={item.type}
-              image={item.image}
-              id={item.id}
-            />
-          ))}
-        </>
-      ))}
-      <div>
-        <button
-          ref={loadMoreButtonRef}
-          onClick={() => fetchNextPage()}
-          disabled={!hasNextPage || isFetchingNextPage}
-        >
-          {isFetchingNextPage
-            ? "불러오는중..."
-            : hasNextPage
-            ? "더 불러오기"
-            : ""}
-        </button>
-      </div>
-    </TypeFilteredPokemonsStyle>
+    <>
+      <Input />
+      <TypeButtons />
+      <TypeFilteredPokemonsStyle>
+        {data?.pages.map((page) => (
+          <>
+            {page.items.map((item) => (
+              <PokemonCard
+                key={item.id}
+                name={item.name}
+                types={item.type}
+                image={item.image}
+                id={item.id}
+              />
+            ))}
+          </>
+        ))}
+        <div>
+          <button
+            ref={loadMoreButtonRef}
+            onClick={() => fetchNextPage()}
+            disabled={!hasNextPage || isFetchingNextPage}
+          >
+            {isFetchingNextPage
+              ? "불러오는중..."
+              : hasNextPage
+              ? "더 불러오기"
+              : ""}
+          </button>
+        </div>
+      </TypeFilteredPokemonsStyle>
+    </>
   );
 };
 

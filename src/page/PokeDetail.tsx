@@ -9,6 +9,7 @@ import styled from "styled-components";
 import PokemonInfo from "../components/pokemonDetail/PokemonInfo";
 import PokemonName from "../components/pokemonDetail/PokemonName";
 import PageMoveButtons from "../components/pokemonDetail/PageMoveButtons";
+import Input from "../components/Common/Input";
 
 const PokeDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -78,24 +79,31 @@ const PokeDetail = () => {
 
   const navigate = useNavigate();
   return (
-    <PokeDetailStyle>
-      <PokemonName name={pokemonName} genera={pokemonGenera} id={Number(id)} />
-      <LazyLoadImage src={movingImage} alt={movingImage} />
-      <Types types={pokeTypes} />
-      <PokemonInfo
-        genera={pokemonGenera}
-        flavorText={flavorText}
-        height={height}
-        weight={weight}
-      />
-      <PokemonStat stats={stats} />
-      <PageMoveButtons
-        id={String(id)}
-        navigate={navigate}
-        nextPokemon={nextPokemon}
-        prevPokemon={prevPokemon}
-      />
-    </PokeDetailStyle>
+    <>
+      <Input />
+      <PokeDetailStyle>
+        <PokemonName
+          name={pokemonName}
+          genera={pokemonGenera}
+          id={Number(id)}
+        />
+        <LazyLoadImage src={movingImage} alt={movingImage} />
+        <Types types={pokeTypes} />
+        <PokemonInfo
+          genera={pokemonGenera}
+          flavorText={flavorText}
+          height={height}
+          weight={weight}
+        />
+        <PokemonStat stats={stats} />
+        <PageMoveButtons
+          id={String(id)}
+          navigate={navigate}
+          nextPokemon={nextPokemon}
+          prevPokemon={prevPokemon}
+        />
+      </PokeDetailStyle>
+    </>
   );
 };
 

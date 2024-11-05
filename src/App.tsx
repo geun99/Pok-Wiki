@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import PokeDetail from "./page/PokeDetail";
 import TypeFilteredPokemons from "./page/TypeFilteredPokemons";
 
-type TypeId =
+export type TypeId =
   | 1
   | 2
   | 3
@@ -25,12 +25,12 @@ type TypeId =
   | 17
   | 18;
 
-function App() {
-  const typeIds: TypeId[] = Array.from(
-    { length: 18 },
-    (_, i) => (i + 1) as TypeId
-  );
+export const typeIds: TypeId[] = Array.from(
+  { length: 18 },
+  (_, i) => (i + 1) as TypeId
+);
 
+function App() {
   return (
     <>
       <Header />

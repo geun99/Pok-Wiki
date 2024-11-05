@@ -47,12 +47,14 @@ const InputStyle = styled.div`
   border-radius: 10px;
   text-align: center;
   .pokemonSearch {
-    width: 50%;
+    width: 100%;
+    max-width: 500px;
     margin-bottom: 20px;
     border-radius: 10px;
     padding: 12px;
     border: 1px solid #ccc;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
+    text-align: center;
   }
   @media (max-width: 768px) {
     .pokemonSearch {
